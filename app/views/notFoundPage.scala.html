@@ -1,0 +1,13 @@
+@(path: String)(implicit flash: Flash)
+
+@import BootstrapHelper._
+
+@main("Page not found") {
+  <div class="container">
+    <br>
+      <div class="alert alert-danger">
+        Page not found!!<br>
+        @path
+      </div>
+  </div>
+}
