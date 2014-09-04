@@ -19,19 +19,19 @@ Activator template for Play Framework and Slick.You can also generate souce code
 1. When execute Scaffold, it import information for generate an application into design repository, and generate source codes.
 2. Edit design repository and re-generate source code.
 
-![generate flow](http://yugolf.github.io/Skalholt/images/skalholt/generate-flow.png)
+![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/generate-flow.png)
 
 ### Design Repository
 
 The table structure and relations.
 
-![generate flow](http://yugolf.github.io/Skalholt/images/skalholt//design-repository.png)
+![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/design-repository.png)
 
 ### Edit design repository
 
 The source codes are improved into a practical application by editing design repository.
 
-![generate flow](http://yugolf.github.io/Skalholt/images/skalholt/capture-screen-detail-customize.png)
+![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/capture-screen-detail-customize.png)
 
 # Contact
 
