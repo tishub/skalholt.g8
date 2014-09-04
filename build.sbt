@@ -1,4 +1,4 @@
-name := """skalholt-template"""
+name := """skalholt"""
 
 version := "0.1.0"
 
