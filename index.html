@@ -16,99 +16,99 @@
     <div class="wrapper">
       <header>
         <h1>Skalholt</h1>
-        <p>Scala code generator for Play Framework and Slick</p>
+        <p></p>
 
-        <p class="view"><a href="https://github.com/tech-sketch/skalholt">View the Project on GitHub <small>tech-sketch/skalholt</small></a></p>
+        <p class="view"><a href="https://github.com/tech-sketch/Skalholt">View the Project on GitHub <small>tech-sketch/Skalholt</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/tech-sketch/skalholt/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/tech-sketch/skalholt/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/tech-sketch/skalholt">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/tech-sketch/Skalholt/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tech-sketch/Skalholt/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tech-sketch/Skalholt">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h2>
-<a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
+<a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>What is Skalholt?</h2>
 
-<p>SkalholtはScalaでのWebアプリケーションの開発を効率化するソースコード自動生成ツールです。データベーススキーマからPlay FrameworkとSlickに準拠したソースコードを生成に加え、スキーマからは得ることが出来ない情報を付加したソースコードの生成を実現します。</p>
+<p>Skalholt is a source code generator which improves efficency of web application development in Scala. It can generate source codes based on Play framework and Slick from database schema, and also it can add some additional information that is not be captured from the database schema to the source codes.</p>
 
-<p>DBスキーマを準備しSkalholtを実行すれば、シンプルなCRUDアプリケーションが作成できます。SkalholtはWebアプリケーションとして動作しますので、自動生成された設計内容をブラウザから編集することが出来ます。これによりScaffoldから一歩進んだアプリケーションを構築することが出来ます。</p>
+<p>Once you prepare DB schema and execute Skalholt, then you can get simple CRUD application. Skalholt works as Web application, so you can browse and edit generated design information in desing repository. With this feature, you can make the application more suitable for your needs than Scaffold.</p>
 
-<p>Webアプリケーションを開発する際のフレームワークとしてスターンダードとなりつつあるPlay FrameworkとSlickを利用する際の開発を効率化すること、また、簡単に開発をスタートできることでScalaやPlayの習得に障壁を感じている方に対して、その習得を促進することを狙いとしています。</p>
+<p>We aim to improve the efficiency of web application development that uses Play framework and Slick, which are going to be de facto standard. Additionally, we aim to help developers who feel difficult to learn these frameworks.</p>
 
 <h3>
-<a name="%E7%89%B9%E5%BE%B4" class="anchor" href="#%E7%89%B9%E5%BE%B4"><span class="octicon octicon-link"></span></a>特徴</h3>
+<a name="skalholt%E7%89%B9%E5%BE%B4" class="anchor" href="#skalholt%E7%89%B9%E5%BE%B4"><span class="octicon octicon-link"></span></a>Main feature</h3>
 
 <ol>
-<li>Play Framework、Slickに対応したソースコードを生成</li>
-<li>DBスキーマからソースコードを生成するScaffold機能</li>
-<li>アプリケーション構造を設計リポジトリに保持し、その内容を編集することでアプリケーションが進化</li>
-<li>「Typesafe Activator」のテンプレートとして提供するためインストール不要</li>
+<li>Generate source codes based on Play Framework and Slick</li>
+<li>Scaffolding: i.e. generate source codes from DB schema</li>
+<li>Improve application by editing design information in the repository which describe application structure</li>
+<li>Installation is not needed because provided as "Typesafe Activator" template</li>
 </ol><h2>
-<a name="%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88" class="anchor" href="#%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>リリースノート</h2>
+<a name="%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88" class="anchor" href="#%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>Release Note</h2>
 
 <ul>
-<li>2014/9/5 Ver0.1.0 First Release</li>
+<li>Sep. 5, 2014&nbsp;&nbsp;Ver0.1.0&nbsp;&nbsp;First Release</li>
 </ul><h2>
-<a name="%E6%A7%8B%E6%88%90" class="anchor" href="#%E6%A7%8B%E6%88%90"><span class="octicon octicon-link"></span></a>構成</h2>
+<a name="skalholt%E3%81%AE%E6%A7%8B%E6%88%90" class="anchor" href="#skalholt%E3%81%AE%E6%A7%8B%E6%88%90"><span class="octicon octicon-link"></span></a>Skalholt Architecture</h2>
 
-<p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションで<a href="http://typesafe.com/activator">「Typesafe Activator」</a>のテンプレートとして提供します。</p>
+<p>Skalholt is a web application base on Play Framework, and provided as <a href="http://typesafe.com/activator">"Typesafe Activator"</a> template.</p>
 
 <p><img src="images/skalholt/cmd-activator-new.png" alt="activator new"></p>
 
-<p>Activatorから生成したプロジェクトは以下の構成になっています。</p>
+<p>The directory strucutre of the project generated by Activator is as follows:</p>
 
-<pre><code>▶ Skalholt-Template
-　 ├ app
-　 │   開発するアプリケーションのソースコード（本ツールにより自動生成）
-　 ├ conf
-　 │   設定ファイル
-　 ├ skalholt/lib
-　 │   Skalholtのライブラリ群
-　 ├ skalholt.h2.db
-　 │   設計リポジトリのデータファイル（H2 Database）
-　 └ skalholt-ui.bat（skalholt-ui）
-　　　　　Skalholt起動バッチ（シェル）
+<pre><code> Skalholt-Template
+    +---app
+    |     (application source codes to be developed; generated automatically by Skalholt)
+    +---conf
+    |     (settings)
+    +---skalholt/lib
+    |     (Skalholt libraries)
+    +---skalholt.h2.db
+    |     (design repository data file; H2 Database)
+    \---skalholt.bat
+          (batch file to invoke Skalholt)
 </code></pre>
 
-<p>Skalholtは以下の様な流れで利用します。</p>
+<p>You can use Skalholt in the following steps:</p>
 
 <h4>
-<a name="1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>1. 自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h4>
+<a name="1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>1. Execute Skalholt. It will gather neccessary information to generate application from business database, insert them into design repository, and generate source codes.</h4>
 
-<p>(1) 設計リポジトリの作成<br>
-   (2) 業務データベースからソースコードの生成<br>
-   (3) 設計リポジトリからソースコードの生成  </p>
+<p>(1) Create design information tables in design repository<br>
+   (2) Generate source codes from business (application) database<br>
+   (3) Generate source codes from design repository</p>
 
 <h4>
-<a name="2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>2. 設計リポジトリの内容を編集し、ソースコードを再生成する。</h4>
+<a name="2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>2. Edit contents of design repository, and then re-generate source codes</h4>
 
-<p>(4) 設計リポジトリの内容を編集<br>
-   (5) ソースコードの再生成  </p>
+<p>(4) Edit the contents of design repository<br>
+   (5) Re-generate source codes</p>
 
 <p><img src="images/skalholt/generate-flow.png" alt="Generate flow"></p>
 
-<p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
-設計リポジトリは以下の様な構成です。</p>
+<p>The architecture of web application to be built is based on Play Framework.  "Controller"s and "View"s are generated based on the contents of design repository, and "Model"s are generated base on business database schema's stucture.
+The structure of Design repository is as follows.</p>
 
 <p><img src="images/skalholt/design-repository.png" alt="Design Repositoy"></p>
 
-<p>Skalholtは以下のDBMSで動作確認を行っています。</p>
+<p>Skalholt is tested with the following DBMS.</p>
 
 <ul>
 <li>H2Database</li>
 <li>PostgreSQL</li>
 </ul><h2>
-<a name="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" class="anchor" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="octicon octicon-link"></span></a>インストール</h2>
+<a name="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" class="anchor" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="octicon octicon-link"></span></a>How to install</h2>
 
-<p>Skalholtを利用するために特別なツールのインストールは不要です。Typesafe Activatorさえインストールされていれば使用できます。
-Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe.comの<a href="http://typesafe.com/platform/getstarted">「TYPESAFE REACTIVE PLATFORM GET STARTED」</a>を参照してください。</p>
+<p>Only you need is Typesafe Activator to use Skalholt. No other tools are needed.
+Please refer to <a href="http://typesafe.com/platform/getstarted">"TYPESAFE REACTIVE PLATFORM GET STARTED"</a> about required environment and setup procedure for Typesafe Activator.</p>
 
 <h2>
-<a name="%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99" class="anchor" href="#%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>設定(業務データベースの準備)</h2>
+<a name="%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99" class="anchor" href="#%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>Settings (Prepare business database)</h2>
 
-<p>アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。</p>
+<p>Please prepare DB schema used by application, and configure "application.conf" to connect the database.</p>
 
 <h4>
 <a name="applicationconf" class="anchor" href="#applicationconf"><span class="octicon octicon-link"></span></a>application.conf</h4>
@@ -119,120 +119,126 @@ db.default.user=sa
 db.default.password=""
 </code></pre>
 
-<p>データベース接続設定の詳細は<a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play公式ドキュメント(リンク先はバージョン2.3)</a>を参照してください。</p>
+<p>Please refer to <a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play Documentation(this link is for version 2.3)</a> for details of settings of database connection.</p>
 
 <h2>
-<a name="%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>利用方法</h2>
+<a name="%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>How to use</h2>
 
 <h3>
-<a name="%E5%89%8D%E6%BA%96%E5%82%99" class="anchor" href="#%E5%89%8D%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>前準備</h3>
+<a name="%E5%89%8D%E6%BA%96%E5%82%99" class="anchor" href="#%E5%89%8D%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>Preparation</h3>
 
 <ul>
-<li>ブランクプロジェクトの作成</li>
+<li>Create blank project</li>
 </ul><pre><code>C:\work&gt;activator new myapp skalholt
 </code></pre>
 
-<p>　※Typesafe ActivatorはUIを利用してWebブラウザ上での操作によりブランクプロジェクトを作成することが出来ます。作成方法は「ActivatorのUIを利用する」を参照してください。</p>
+<p>&nbsp;&nbsp;* You can use Typesafe Activator UI on web browser to generate blank project. Please refer to "Using Activator UI" for details.</p>
 
 <ul>
-<li>プロジェクトディレクトリでActivator起動</li>
+<li>Execute Activator in project directory</li>
 </ul><pre><code>C:\work&gt;cd myapp
 C:\work\myapp&gt;activator
 </code></pre>
 
 <ul>
-<li>コンパイル</li>
+<li>Compile</li>
 </ul><pre><code>[myapp] $compile
 </code></pre>
 
 <ul>
-<li>H2 Database起動（設計リポジトリとサンプルの業務データベースとして利用します。）</li>
+<li>Invoke H2 Database (It is used to manage both design repository and sample business database.)</li>
 </ul><pre><code>[myapp] $ h2-browser
 </code></pre>
 
 <ul>
-<li>アプリケーション起動</li>
+<li>Execute application</li>
 </ul><pre><code>[myapp] $ run
 </code></pre>
 
 <ul>
 <li>
-<p><a href="http://localhost:9000/">http://localhost:9000/</a> へアクセス<br>
-メニューにはまだ何も表示されません。</p>
+<p>Access to <a href="http://localhost:9000/">http://localhost:9000/</a><br>
+Menu has no items at this time</p>
 
 <p><img src="images/skalholt/menu-before.png" alt="no menu"></p>
 </li>
 </ul><h2>
-<a name="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88" class="anchor" href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>ソースコードのジェネレート</h2>
+<a name="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88" class="anchor" href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>Generate source codes</h2>
 
 <h4>
-<a name="1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1" class="anchor" href="#1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1"><span class="octicon octicon-link"></span></a>1. 自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h4>
+<a name="1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1" class="anchor" href="#1-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1"><span class="octicon octicon-link"></span></a>1. Execute Skalholt. It will gather neccessary information to generate application from business database, insert them into design repository, and generate source codes.</h4>
 
 <ul>
-<li>Skalholtの起動</li>
+<li>Execute Skalholt</li>
 </ul><pre><code>C:\work\myapp&gt;skalholt-ui
 </code></pre>
 
 <ul>
-<li><p><a href="http://localhost:9001/">http://localhost:9001/</a> へアクセス
+<li><p>Access to <a href="http://localhost:9001/">http://localhost:9001/</a>
 <img src="images/skalholt/capture-generator.png" alt="Source Code Generate"></p></li>
-<li><p>「Generate」画面にソースコード出力先と自動生成の元となるDBスキーマへの接続情報を設定し「Create design repository and generate source code」をクリック</p></li>
+<li><p>Input output folder location and connection information to DB schema which is the source of code generation, and then click "Create design repository and generate source code"</p></li>
 <li>
-<p><a href="http://localhost:9000/">http://localhost:9000/</a> へアクセス<br>
-メニューにアプリケーションへアクセスするためのリンクが生成されています。  </p>
+<p>Access to <a href="http://localhost:9000/">http://localhost:9000/</a><br>
+Menu have link(s) to access to generated application now.</p>
 
 <p><img src="images/skalholt/menu-after.png" alt="no menu"></p>
 </li>
 </ul><h4>
-<a name="2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1" class="anchor" href="#2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1"><span class="octicon octicon-link"></span></a>2. 設計リポジトリの内容を編集し、ソースコードを再生成する。</h4>
+<a name="2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1" class="anchor" href="#2-%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B-1"><span class="octicon octicon-link"></span></a>2. Edit contents of design repository, and then re-generate source codes.</h4>
 
 <ul>
 <li>
-<a href="http://localhost:9001/">http://localhost:9001/</a> へアクセス</li>
-<li><p>「Screens」画面から変更したい画面を選択
+Access to <a href="http://localhost:9001/">http://localhost:9001/</a></li>
+<li><p>Choose the screen you'd like to change from "Result of Search" list
 <img src="images/skalholt/capture-screens.png" alt="Screens"></p></li>
-<li><p>「Screen Detail」画面に画面情報を編集
+<li><p>Edit screen items on "Screen Detail"
 <img src="images/skalholt/capture-screen-detail.png" alt="Screen Detail"></p></li>
-<li><p>画面右上の「Re Generate」からソースコードを再生成</p></li>
-<li>どんな変更ができるのか？
+<li><p>Click "Re Generate" on the upper right corner of screen to re-generate source codes</p></li>
+<li>You can change the following behaviors of the application
 
 <ul>
-<li>HTMLコンポーネントの種類を変更したい</li>
-<li>バリデーションの内容を変更したい</li>
-<li>検索方法を変更したい</li>
-<li>入力項目を追加・削除したい</li>
+<li>Kind of HTML component</li>
+<li>Validation way of screen item</li>
+<li>Search condition</li>
+<li>Input items (add/remove)</li>
 </ul>
 </li>
 </ul><p><img src="images/skalholt/capture-screen-detail-customize.png" alt="Edit Screen Detail"></p>
 
 <h3>
-<a name="activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" class="anchor" href="#activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>ActivatorのUIを利用する</h3>
+<a name="activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" class="anchor" href="#activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>Using Activator UI</h3>
 
-<p>Typesafe ActivatorのUIを利用する場合は、Activatorをインストールしたディレクトリにある「activator」（Linux ｏｒ Macの場合）、または、「avtivator.bat」（Windowsの場合）を実行してください。</p>
+<p>Execute `activator' (Linux or Mac) or `activator.bat' (Windows) located on Activator installed directory to use Typesafe Activator UI.</p>
 
 <p><img src="images/skalholt/capture-activator-ui.png" alt="Activator UI"></p>
 
-<p>また、コマンドプロンプトから「activator ui」の実行により起動することも出来ます。</p>
+<p>Or you can also invoke it by `activator ui' on command prompt.</p>
 
-<pre><code>C:\work&gt;activator ui
+<pre><code>C:\work&gt;activator-ui
 </code></pre>
 
-<p>Typesafe Activatorの詳細な利用方法については、Typesafe.comの<a href="http://typesafe.com/activator/docs">「TYPESAFE ACTIVATOR DOCUMENTATION」</a>を参照してください。</p>
+<p>Please refer to <a href="http://typesafe.com/activator/docs">"TYPESAFE ACTIVATOR DOCUMENTATION"</a> on typesafe.com for details of Typesafe Activator.</p>
 
 <h2>
-<a name="%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88" class="anchor" href="#%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88"><span class="octicon octicon-link"></span></a>問い合わせ先</h2>
+<a name="%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88" class="anchor" href="#%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88"><span class="octicon octicon-link"></span></a>Contact</h2>
 
-<p>フィードバックや不明点等以下までお問い合わせ下さい。<br>
-TIS株式会社<br>
-コーポレート本部　戦略技術センター<br>
-Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+Please send feedback to us
 
+Skalholt team<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+
+Strategic Information Center, Corporate SBU.<br>
+TIS Inc.<br>
+<p/>
 <h2>
-<a name="%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9" class="anchor" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9"><span class="octicon octicon-link"></span></a>ライセンス</h2>
+<a name="%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9" class="anchor" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>Skalholtは<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version2.0</a>のもとにリリースされています。</p>
+<p>Skalholt is released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version2.0</a>.</p>
       </section>
       <footer>
+        <p>
+          <a href="index_ja.html"><img src="images/skalholt/flag_japan.png" alt="Japanese"></a>
+          <a href="index.html">   <img src="images/skalholt/flag_united_kingdom.png" alt="English"></a>
+        </p>
         <p>This project is maintained by <a href="https://github.com/tech-sketch">tech-sketch</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
@@ -244,7 +250,7 @@ Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.c
           </script>
           <script type="text/javascript">
             try {
-              var pageTracker = _gat._getTracker("UA-54356347-2");
+              var pageTracker = _gat._getTracker("UA-54356347-1");
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
