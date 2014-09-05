@@ -6,18 +6,17 @@
     <head>
         <title>@title</title>
 
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css">
+        <link rel="stylesheet" href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("bootflat/css/bootflat.css")">
 
         <!-- Bootstrap -->
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.1.min.js")")></script>
+        <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")"></script>
 
         <!-- Bootflat's JS files.-->
         <script src="@routes.Assets.at("bootflat/js/icheck.min.js")"></script>
         <script src="@routes.Assets.at("bootflat/js/jquery.fs.selecter.min.js")"></script>
         <script src="@routes.Assets.at("bootflat/js/jquery.fs.stepper.min.js")"></script>
-
     </head>
     <body>
         @menu.apply
