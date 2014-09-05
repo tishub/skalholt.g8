@@ -353,7 +353,7 @@ declare -r app_mainclass="play.core.server.NettyServer"
 declare -r script_conf_file="/etc/default/skalholt-ui"
 declare -r app_classpath="$lib_dir/*"
 
-addJava "-Duser.dir=$(cd "${app_home}/.."; pwd -P)"
+addJava "-Duser.dir=$(cd "${app_home}"; pwd -P)"
 
 # java_cmd is overrode in process_args when -java-home is used
 declare java_cmd=$(get_java_cmd)
