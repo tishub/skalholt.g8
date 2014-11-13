@@ -17,7 +17,7 @@ object CodeMasters extends AbstractCodeMasters {
           case _ => List.empty
         }
       case _ =>
-        val codeMasters = sort
+        val codeMasters = getCodeMaster
         Cache.set("codeMasters", codeMasters)
         codeMasters
     }
@@ -26,9 +26,10 @@ object CodeMasters extends AbstractCodeMasters {
   }
 
   /** Database connection */
-  val database = Database.forDataSource(DB.getDataSource())
-  def sort = database.withTransaction { implicit session: Session =>
-    CodeMaster.sortBy(f => (f.codegrpNo, f.codeValue)).list
-  }
+  def getCodeMaster =
+    Database.forDataSource(DB.getDataSource()).withTransaction {
+      implicit session: Session =>
+        CodeMaster.sortBy(f => (f.codegrpNo, f.codeValue)).list
+    }
 
 }
