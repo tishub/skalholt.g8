@@ -37,8 +37,8 @@ The source codes are improved into a practical application by editing design rep
 
 # How to install
 
-You can find installation instructions and getting started documentation at http://tech-sketch.github.io/skalholt/.
-(see "How to install" section below)
+You can find getting started documentation at http://tech-sketch.github.io/skalholt/.
+(see [How to install](http://tech-sketch.github.io/skalholt/#HowToInstall) section below)
 
 # Contact
 
