@@ -121,6 +121,7 @@ Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe.co
 </code></pre>
 
 <p>※Typesafe ActivatorはUIを利用してWebブラウザ上での操作によりブランクプロジェクトを作成することが出来ます。作成方法は「ActivatorのUIを利用する」を参照してください。</p>
+<p>※<code>activator new</code>の実行時に<code>akka.pattern.AskTimeoutException</code>が発生した場合は、<code>-Dactivator.timeout</code>オプションを指定して再実行してください。詳細な情報は<a href="http://typesafe.com/activator/docs">TYPESAFE ACTIVATOR DOCUMENTATION</a>の<i>Typesafe Activator FAQ/Increasing The Timeout</i>を参照してください。</p>
 
 <li>プロジェクトディレクトリでActivator起動</li>
 <pre><code>C:\work&gt;cd myapp
