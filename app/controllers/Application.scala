@@ -1,12 +1,15 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
-object Application extends Controller {
+class Application extends Controller {
 
-  def index = Action { implicit request =>
-    Ok(views.html.index("Your new application is ready."))
+  def index = Action.async { implicit request =>
+    Future {
+      Ok(views.html.index("Your new application is ready."))
+    }
   }
 
 }

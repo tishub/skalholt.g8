@@ -8,12 +8,12 @@
 **************************************************@
 
 <div class="form-group @elements.args.get('_class) @if(elements.hasErrors) {has-error}" id="@elements.args.get('_id).getOrElse(elements.id + "_field")">
-  <label for="@elements.id" class="col-sm-3 control-label">@elements.label(elements.lang)</label>
+  <label for="@elements.id" class="col-sm-3 control-label">@elements.label</label>
   <div class="col-sm-9">
     <div class="form-group">
       @Html(HtmlUtil.toFormControl(elements.input.body))
-      <span class="help-block">@elements.errors(elements.lang).mkString(", ")</span>
-      <span class="help-block">@elements.infos(elements.lang).mkString(", ")</span>
+      <span class="help-block">@elements.errors.mkString(", ")</span>
+      <span class="help-block">@elements.infos.mkString(", ")</span>
     </div>
   </div>
 </div>

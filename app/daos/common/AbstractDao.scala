@@ -3,9 +3,14 @@ package daos.common
 import java.lang.reflect.Field
 import models.CommonTables.CodeMaster
 import daos.common.DaoUtil._
-import scala.slick.driver.H2Driver.simple._
+import play.api.Play
+import slick.driver.JdbcProfile
+import play.api.db.slick.{HasDatabaseConfig, DatabaseConfigProvider}
+import slick.driver.H2Driver.api._
 
-abstract class AbstractDao {
+
+abstract class AbstractDao extends HasDatabaseConfig[JdbcProfile] {
+  val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
 
   def filter[A, B](condition: Any, q: Query[A, B, Seq]): Query[A, B, Seq] = {
 
@@ -27,7 +32,7 @@ abstract class AbstractDao {
     filter(condition, condition.getClass().getDeclaredFields().iterator, q)
   }
 
-  def joinCm(e: Column[Option[String]], c: CodeMaster, codeValue: String) = {
+  def joinCm(e: Rep[Option[String]], c: CodeMaster, codeValue: String) = {
     e === c.codeValue && c.codegrpNo === codeValue
   }
 

@@ -1,6 +1,6 @@
 package daos.common
 
-import scala.slick.driver.H2Driver.simple._
+import slick.driver.H2Driver.api._
 import play.Logger
 import utils.annotations.searchcondition._
 
@@ -29,7 +29,7 @@ object DaoUtil {
     }
   }
 
-  def filedMatching(field: Any, value: Any, condition: Any): Column[Boolean] =
+  def filedMatching(field: Any, value: Any, condition: Any): Rep[Boolean] =
     value match {
       case p: List[t] if (p.isEmpty) =>
         Logger.warn("no match type[" + value.getClass + "]:" + value)
@@ -37,59 +37,59 @@ object DaoUtil {
       case p: List[t] =>
         p(0) match {
           case x: String =>
-            condmatchString(condition, field.asInstanceOf[Column[String]], value.asInstanceOf[List[String]])
+            condmatchString(condition, field.asInstanceOf[Rep[String]], value.asInstanceOf[List[String]])
           case x: Int =>
-            condmatchInt(condition, field.asInstanceOf[Column[Int]], value.asInstanceOf[List[Int]])
+            condmatchInt(condition, field.asInstanceOf[Rep[Int]], value.asInstanceOf[List[Int]])
           case x: Boolean =>
-            condmatchBoolean(condition, field.asInstanceOf[Column[Boolean]], value.asInstanceOf[List[Boolean]])
+            condmatchBoolean(condition, field.asInstanceOf[Rep[Boolean]], value.asInstanceOf[List[Boolean]])
           case x: Byte =>
-            condmatchByte(condition, field.asInstanceOf[Column[Byte]], value.asInstanceOf[List[Byte]])
+            condmatchByte(condition, field.asInstanceOf[Rep[Byte]], value.asInstanceOf[List[Byte]])
           case x: Short =>
-            condmatchShort(condition, field.asInstanceOf[Column[Short]], value.asInstanceOf[List[Short]])
+            condmatchShort(condition, field.asInstanceOf[Rep[Short]], value.asInstanceOf[List[Short]])
           case x: Long =>
-            condmatchLong(condition, field.asInstanceOf[Column[Long]], value.asInstanceOf[List[Long]])
+            condmatchLong(condition, field.asInstanceOf[Rep[Long]], value.asInstanceOf[List[Long]])
           case x: BigDecimal =>
-            condmatchBigDecimal(condition, field.asInstanceOf[Column[BigDecimal]], value.asInstanceOf[List[BigDecimal]])
+            condmatchBigDecimal(condition, field.asInstanceOf[Rep[BigDecimal]], value.asInstanceOf[List[BigDecimal]])
           case x: Double =>
-            condmatchDouble(condition, field.asInstanceOf[Column[Double]], value.asInstanceOf[List[Double]])
+            condmatchDouble(condition, field.asInstanceOf[Rep[Double]], value.asInstanceOf[List[Double]])
           case x: Float =>
-            condmatchFloat(condition, field.asInstanceOf[Column[Float]], value.asInstanceOf[List[Float]])
+            condmatchFloat(condition, field.asInstanceOf[Rep[Float]], value.asInstanceOf[List[Float]])
           case x: java.sql.Date =>
-            condmatchDate(condition, field.asInstanceOf[Column[java.sql.Date]], value.asInstanceOf[List[java.sql.Date]])
+            condmatchDate(condition, field.asInstanceOf[Rep[java.sql.Date]], value.asInstanceOf[List[java.sql.Date]])
           case x: java.sql.Timestamp =>
-            condmatchTimestamp(condition, field.asInstanceOf[Column[java.sql.Timestamp]], value.asInstanceOf[List[java.sql.Timestamp]])
+            condmatchTimestamp(condition, field.asInstanceOf[Rep[java.sql.Timestamp]], value.asInstanceOf[List[java.sql.Timestamp]])
           case _ =>
             Logger.warn("no match type[" + value.getClass + "]:" + value)
             new LiteralColumn(true)
         }
       case x: String =>
-        condmatch(condition, field.asInstanceOf[Column[String]], value.asInstanceOf[String])
+        condmatch(condition, field.asInstanceOf[Rep[String]], value.asInstanceOf[String])
       case x: Int =>
-        condmatch(condition, field.asInstanceOf[Column[Int]], value.asInstanceOf[Int])
+        condmatch(condition, field.asInstanceOf[Rep[Int]], value.asInstanceOf[Int])
       case x: Boolean =>
-        condmatch(condition, field.asInstanceOf[Column[Boolean]], value.asInstanceOf[Boolean])
+        condmatch(condition, field.asInstanceOf[Rep[Boolean]], value.asInstanceOf[Boolean])
       case x: Byte =>
-        condmatch(condition, field.asInstanceOf[Column[Byte]], value.asInstanceOf[Byte])
+        condmatch(condition, field.asInstanceOf[Rep[Byte]], value.asInstanceOf[Byte])
       case x: Short =>
-        condmatch(condition, field.asInstanceOf[Column[Short]], value.asInstanceOf[Short])
+        condmatch(condition, field.asInstanceOf[Rep[Short]], value.asInstanceOf[Short])
       case x: Long =>
-        condmatch(condition, field.asInstanceOf[Column[Long]], value.asInstanceOf[Long])
+        condmatch(condition, field.asInstanceOf[Rep[Long]], value.asInstanceOf[Long])
       case x: BigDecimal =>
-        condmatch(condition, field.asInstanceOf[Column[BigDecimal]], value.asInstanceOf[BigDecimal])
+        condmatch(condition, field.asInstanceOf[Rep[BigDecimal]], value.asInstanceOf[BigDecimal])
       case x: Double =>
-        condmatch(condition, field.asInstanceOf[Column[Double]], value.asInstanceOf[Double])
+        condmatch(condition, field.asInstanceOf[Rep[Double]], value.asInstanceOf[Double])
       case x: Float =>
-        condmatch(condition, field.asInstanceOf[Column[Float]], value.asInstanceOf[Float])
+        condmatch(condition, field.asInstanceOf[Rep[Float]], value.asInstanceOf[Float])
       case x: java.sql.Date =>
-        condmatch(condition, field.asInstanceOf[Column[java.sql.Date]], value.asInstanceOf[java.sql.Date])
+        condmatch(condition, field.asInstanceOf[Rep[java.sql.Date]], value.asInstanceOf[java.sql.Date])
       case x: java.sql.Timestamp =>
-        condmatch(condition, field.asInstanceOf[Column[java.sql.Timestamp]], value.asInstanceOf[java.sql.Timestamp])
+        condmatch(condition, field.asInstanceOf[Rep[java.sql.Timestamp]], value.asInstanceOf[java.sql.Timestamp])
       case _ =>
         Logger.warn("no match type[" + value.getClass + "]:" + value)
         new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[String], value: String): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[String], value: String): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -107,7 +107,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchString(condition: Any, col: Column[String], value: List[String]): Column[Boolean] =
+  def condmatchString(condition: Any, col: Rep[String], value: List[String]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -117,7 +117,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Int], value: Int): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Int], value: Int): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -132,7 +132,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchInt(condition: Any, col: Column[Int], value: List[Int]): Column[Boolean] =
+  def condmatchInt(condition: Any, col: Rep[Int], value: List[Int]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -142,7 +142,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Boolean], value: Boolean): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Boolean], value: Boolean): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -157,7 +157,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchBoolean(condition: Any, col: Column[Boolean], value: List[Boolean]): Column[Boolean] =
+  def condmatchBoolean(condition: Any, col: Rep[Boolean], value: List[Boolean]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -167,7 +167,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Byte], value: Byte): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Byte], value: Byte): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -182,7 +182,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchByte(condition: Any, col: Column[Byte], value: List[Byte]): Column[Boolean] =
+  def condmatchByte(condition: Any, col: Rep[Byte], value: List[Byte]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -192,7 +192,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Short], value: Short): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Short], value: Short): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -207,7 +207,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchShort(condition: Any, col: Column[Short], value: List[Short]): Column[Boolean] =
+  def condmatchShort(condition: Any, col: Rep[Short], value: List[Short]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -217,7 +217,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Long], value: Long): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Long], value: Long): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -232,7 +232,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchLong(condition: Any, col: Column[Long], value: List[Long]): Column[Boolean] =
+  def condmatchLong(condition: Any, col: Rep[Long], value: List[Long]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -242,7 +242,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[BigDecimal], value: BigDecimal): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[BigDecimal], value: BigDecimal): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -257,7 +257,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchBigDecimal(condition: Any, col: Column[BigDecimal], value: List[BigDecimal]): Column[Boolean] =
+  def condmatchBigDecimal(condition: Any, col: Rep[BigDecimal], value: List[BigDecimal]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -267,7 +267,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Double], value: Double): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Double], value: Double): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -282,7 +282,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchDouble(condition: Any, col: Column[Double], value: List[Double]): Column[Boolean] =
+  def condmatchDouble(condition: Any, col: Rep[Double], value: List[Double]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -292,7 +292,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[Float], value: Float): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[Float], value: Float): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -307,7 +307,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchFloat(condition: Any, col: Column[Float], value: List[Float]): Column[Boolean] =
+  def condmatchFloat(condition: Any, col: Rep[Float], value: List[Float]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -317,7 +317,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[java.sql.Date], value: java.sql.Date): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[java.sql.Date], value: java.sql.Date): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -332,7 +332,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchDate(condition: Any, col: Column[java.sql.Date], value: List[java.sql.Date]): Column[Boolean] =
+  def condmatchDate(condition: Any, col: Rep[java.sql.Date], value: List[java.sql.Date]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -342,7 +342,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatch(condition: Any, col: Column[java.sql.Timestamp], value: java.sql.Timestamp): Column[Boolean] =
+  def condmatch(condition: Any, col: Rep[java.sql.Timestamp], value: java.sql.Timestamp): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {
@@ -357,7 +357,7 @@ object DaoUtil {
       case _ => new LiteralColumn(true)
     }
 
-  def condmatchTimestamp(condition: Any, col: Column[java.sql.Timestamp], value: List[java.sql.Timestamp]): Column[Boolean] =
+  def condmatchTimestamp(condition: Any, col: Rep[java.sql.Timestamp], value: List[java.sql.Timestamp]): Rep[Boolean] =
     condition match {
       case Some(c) =>
         c match {

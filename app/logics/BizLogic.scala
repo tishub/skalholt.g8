@@ -1,18 +1,18 @@
 package logics
 
-import play.api.db.slick._
-import play.api.mvc._
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 trait BizLogic {
 
-  def logic:Option[Any] = {None}
+  def logic:Future[Option[Any]] = {Future{None}}
 
-  def anyLogic(data: Any)(implicit request:DBSessionRequest[AnyContent]):Option[Any] ={None}
+  def anyLogic(data: Any):Future[Option[Any]] ={Future{None}}
 
-  def intLogic(data: Any)(implicit request:DBSessionRequest[AnyContent]):Option[Int] ={None}
+  def intLogic(data: Any):Future[Option[Int]] ={Future{None}}
 
-  def intLogic(data: String)(implicit request:DBSessionRequest[AnyContent]):Option[Int] ={None}
+  def intLogic(data: String):Future[Option[Int]] ={Future{None}}
 
-  def listLogic(data: Any)(implicit request:DBSessionRequest[AnyContent]):Option[List[Any]] ={None}
+  def listLogic(data: Any):Future[Option[List[Any]]] ={Future{None}}
 
 }

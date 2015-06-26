@@ -1,7 +1,9 @@
 package daos.common
 
 import models.CommonTables._
-import scala.slick.driver.H2Driver.simple._
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+import slick.driver.H2Driver.api._
 import play.cache.Cache
 import play.api.db.DB
 import play.api.Play.current
@@ -11,13 +13,13 @@ object CodeMasters extends AbstractCodeMasters {
   def filterCodegrpNo(codegrpNo: String) = {
 
     val codeMasters = Cache.get("codeMasters") match {
-      case x: List[_] if (!x.isEmpty) =>
+      case x: Seq[_] if (!x.isEmpty) =>
         x.head match {
-          case _: CodeMasterRow => x.asInstanceOf[List[CodeMasterRow]]
-          case _ => List.empty
+          case _: CodeMasterRow => x.asInstanceOf[Seq[CodeMasterRow]]
+          case _ => Seq.empty
         }
       case _ =>
-        val codeMasters = getCodeMaster
+        val codeMasters = Await.result(getCodeMaster, Duration.Inf)
         Cache.set("codeMasters", codeMasters)
         codeMasters
     }
@@ -27,9 +29,5 @@ object CodeMasters extends AbstractCodeMasters {
 
   /** Database connection */
   def getCodeMaster =
-    Database.forDataSource(DB.getDataSource()).withTransaction {
-      implicit session: Session =>
-        CodeMaster.sortBy(f => (f.codegrpNo, f.codeValue)).list
-    }
-
+    Database.forDataSource(DB.getDataSource()).run(CodeMaster.sortBy(f => (f.codegrpNo, f.codeValue)).result)
 }
