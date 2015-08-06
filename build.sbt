@@ -9,7 +9,7 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(
   jdbc,
   "com.typesafe.slick" %% "slick" % "3.0.0",
-  "postgresql" % "postgresql" % "9.1-901.jdbc4",
+  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
   "com.typesafe.play" %% "play-slick" % "1.0.0",
   "com.h2database" % "h2" % "1.3.176",
   "com.zaxxer" % "HikariCP" % "2.3.7",
