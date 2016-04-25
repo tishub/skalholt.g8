@@ -140,7 +140,7 @@ C:\work\myapp&gt;activator
 </code></pre>
 <li>Webブラウザが起動しますので接続先情報を入力し、データベースの内容を確認してみましょう。</li>
 <pre><code>Driver Class : org.h2.Driver
-JDBC URL     : jdbc:h2:tcp://localhost:9092/skalholt;
+JDBC URL     : jdbc:h2:tcp://localhost:9092/./skalholt;
 User Name    : sa
 Password     :
 </code></pre>
@@ -152,7 +152,7 @@ Password     :
 <li>application.conf</li>
 
 <pre><code>db.default.driver=org.h2.Driver
-db.default.url="jdbc:h2:tcp://localhost:9092/skalholt;SCHEMA=SAMPLE"
+db.default.url="jdbc:h2:tcp://localhost:9092/./skalholt;SCHEMA=SAMPLE"
 db.default.user=sa
 db.default.password=""
 </code></pre>

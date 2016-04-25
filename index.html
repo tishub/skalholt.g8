@@ -143,7 +143,7 @@ C:\work\myapp&gt;activator
 
 <li>When web broser is started, please input database conection information and check database schema.</li>
 <pre><code>Driver Class : org.h2.Driver
-JDBC URL     : jdbc:h2:tcp://localhost:9092/skalholt;
+JDBC URL     : jdbc:h2:tcp://localhost:9092/./skalholt;
 User Name    : sa
 Password     :
 </code></pre>
@@ -157,7 +157,7 @@ Password     :
 <li>application.conf</li>
 
 <pre><code>db.default.driver=org.h2.Driver
-db.default.url="jdbc:h2:tcp://localhost:9092/skalholt;SCHEMA=SAMPLE"
+db.default.url="jdbc:h2:tcp://localhost:9092/./skalholt;SCHEMA=SAMPLE"
 db.default.user=sa
 db.default.password=""
 </code></pre>
