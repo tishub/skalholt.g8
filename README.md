@@ -41,6 +41,12 @@ The source codes are improved into a practical application by editing design rep
 You can find getting started documentation at http://tech-sketch.github.io/skalholt/.
 (see [How to install](http://tech-sketch.github.io/skalholt/#HowToInstall) section below)
 
+# DBMS
+
+Skalholt is tested with the following DBMS.
+* H2Database
+* PostgreSQL
+
 # Contact
 
 Please send feedback to us.
