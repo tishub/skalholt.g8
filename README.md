@@ -15,7 +15,7 @@ A template for Play Framework and Slick.You can also generate souce codes from d
 * Source codes are generated from DB schema.
  ‐ Import Application structures into the Repository in the process.
 * Can edit the application structures in the repository.
-* If you have installed sbt, you can use from "git clone".
+* If you have installed sbt, you can use from "sbt new".
 
 ### Generating flow when using the code generator
 

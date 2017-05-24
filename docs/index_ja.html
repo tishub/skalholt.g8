@@ -44,7 +44,7 @@
 <li>Play Framework、Slickに対応したソースコードを生成</li>
 <li>DBスキーマからソースコードを生成するScaffold機能</li>
 <li>アプリケーション構造を設計リポジトリに保持し、その内容を編集することでアプリケーションが進化</li>
-<li>sbtがインストールされていればGitHubからクローンして利用可能</li>
+<li>sbtがインストールされていれば "sbt new" で利用可能</li>
 </ol><h2>
 <a name="ReleaseNote" class="anchor" href="#ReleaseNote"><span class="octicon octicon-link"></span></a>リリースノート</h2>
 
@@ -115,7 +115,7 @@ sbtの利用に必要な環境と環境構築方法は公式サイトの<a href=
 
 <ul>
 <li>git clone」によるプロジェクト作成</li>
-<pre><code>C:\work&gt;git clone git@github.com:tech-sketch/skalholt.git myapp
+<pre><code>C:\work&gt;sbt new tis-hub/skalholt.g8 --name=myapp
 </code></pre>
 
 <li>プロジェクトディレクトリでsbt起動</li>
