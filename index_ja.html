@@ -44,7 +44,7 @@
 <li>Play Framework、Slickに対応したソースコードを生成</li>
 <li>DBスキーマからソースコードを生成するScaffold機能</li>
 <li>アプリケーション構造を設計リポジトリに保持し、その内容を編集することでアプリケーションが進化</li>
-<li>「Typesafe Activator」のテンプレートとして提供するためインストール不要</li>
+<li>sbtがインストールされていればGitHubからクローンして利用可能</li>
 </ol><h2>
 <a name="ReleaseNote" class="anchor" href="#ReleaseNote"><span class="octicon octicon-link"></span></a>リリースノート</h2>
 
@@ -55,11 +55,9 @@
 </ul><h2>
 <a name="SkalholtArchitecture" class="anchor" href="#SkalholtArchitecture"><span class="octicon octicon-link"></span></a>構成</h2>
 
-<p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションで<a href="http://typesafe.com/activator">「Typesafe Activator」</a>のテンプレートとして提供します。</p>
+<p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションのテンプレートです。</p>
 
-<p><img src="images/skalholt/cmd-activator-new.png" alt="activator new"></p>
-
-<p>Activatorから生成したプロジェクトは以下の構成になっています。</p>
+<p>プロジェクトは以下の構成になっています。</p>
 
 <pre><code>▶ Skalholt-Template
 　 ├ app
@@ -104,8 +102,8 @@
 </ul><h2>
 <a name="HowToInstall" class="anchor" href="#HowToInstall"><span class="octicon octicon-link"></span></a>インストール</h2>
 
-<p>Skalholtを利用するために特別なツールのインストールは不要です。Typesafe Activatorさえインストールされていれば使用できます。
-Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe.comの<a href="http://typesafe.com/platform/getstarted">「TYPESAFE REACTIVE PLATFORM GET STARTED」</a>を参照してください。</p>
+<p>Skalholtを利用するために特別なツールのインストールは不要です。sbtさえインストールされていれば使用できます。
+sbtの利用に必要な環境と環境構築方法は公式サイトの<a href="http://www.scala-sbt.org/0.13/docs/ja/Setup.html">「sbt のインストール」</a>を参照してください。</p>
 
 <h2>
 <a name="HowToUse" class="anchor" href="#HowToUse"><span class="octicon octicon-link"></span></a>利用手順</h2>
@@ -116,16 +114,13 @@ Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe.co
 <h4>1. ブランクプロジェクトの作成</h4>
 
 <ul>
-<li>「Activator new」によるプロジェクト作成</li>
-<pre><code>C:\work&gt;activator new myapp skalholt
+<li>git clone」によるプロジェクト作成</li>
+<pre><code>C:\work&gt;git clone git@github.com:tech-sketch/skalholt.git myapp
 </code></pre>
 
-<p>※Typesafe ActivatorはUIを利用してWebブラウザ上での操作によりブランクプロジェクトを作成することが出来ます。作成方法は「ActivatorのUIを利用する」を参照してください。</p>
-<p>※<code>activator new</code>の実行時に<code>akka.pattern.AskTimeoutException</code>が発生した場合は、<code>-Dactivator.timeout</code>オプションを指定して再実行してください。詳細な情報は<a href="http://typesafe.com/activator/docs">TYPESAFE ACTIVATOR DOCUMENTATION</a>の「Typesafe Activator FAQ/Increasing The Timeout」を参照してください。</p>
-
-<li>プロジェクトディレクトリでActivator起動</li>
+<li>プロジェクトディレクトリでsbt起動</li>
 <pre><code>C:\work&gt;cd myapp
-C:\work\myapp&gt;activator
+C:\work\myapp&gt;sbt
 </code></pre>
 
 <li>コンパイル</li>
@@ -217,26 +212,12 @@ db.default.password=""
 </li>
 </ul><p><img src="images/skalholt/capture-screen-detail-customize.png" alt="Edit Screen Detail"></p>
 
-<h3>
-<a name="UsingActivatorUI" class="anchor" href="#UsingActivatorUI"><span class="octicon octicon-link"></span></a>ActivatorのUIを利用する</h3>
-
-<p>Typesafe ActivatorのUIを利用する場合は、Activatorをインストールしたディレクトリにある「activator」（Linux or Macの場合）、または、「avtivator.bat」（Windowsの場合）を実行してください。</p>
-
-<p><img src="images/skalholt/capture-activator-ui.png" alt="Activator UI"></p>
-
-<p>また、コマンドプロンプトから「activator ui」の実行により起動することも出来ます。</p>
-
-<pre><code>C:\work&gt;activator ui
-</code></pre>
-
-<p>Typesafe Activatorの詳細な利用方法については、Typesafe.comの<a href="http://typesafe.com/activator/docs">「TYPESAFE ACTIVATOR DOCUMENTATION」</a>を参照してください。</p>
-
 <h2>
 <a name="Contact" class="anchor" href="#Contact"><span class="octicon octicon-link"></span></a>問い合わせ先</h2>
 
 <p>フィードバックや不明点等以下までお問い合わせ下さい。<br>
 TIS株式会社<br>
-コーポレート本部　戦略技術センター<br>
+生産革新本部 生産革新部 生産技術R&D室<br>
 Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
 
 <h2>
