@@ -22,24 +22,24 @@ A template for Play Framework and Slick.You can also generate souce codes from d
 1. When execute Scaffold, it import information for generate an application into design repository, and generate source codes.
 2. Edit design repository and re-generate source code.
 
-![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/generate-flow.png)
+![generate flow](docs/images/skalholt/generate-flow.png)
 
 ### Design Repository
 
 The table structure and relations.
 
-![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/design-repository.png)
+![generate flow](docs/images/skalholt/design-repository.png)
 
 ### Edit design repository
 
 The source codes are improved into a practical application by editing design repository.
 
-![generate flow](http://tech-sketch.github.io/skalholt/images/skalholt/capture-screen-detail-customize.png)
+![generate flow](docs/images/skalholt/capture-screen-detail-customize.png)
 
 # How to install
 
-You can find getting started documentation at http://tech-sketch.github.io/skalholt/.
-(see [How to install](http://tech-sketch.github.io/skalholt/#HowToInstall) section below)
+You can find getting started documentation at http://tis-hub.github.io/skalholt.g8/.
+(see [How to install](http://tis-hub.github.io/skalholt.g8/#HowToInstall) section below)
 
 # DBMS
 
