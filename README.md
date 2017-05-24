@@ -1,6 +1,6 @@
 # About
 
-Activator template for Play Framework and Slick.You can also generate souce codes from database schema.
+A template for Play Framework and Slick.You can also generate souce codes from database schema.
 
 # Release Notes
 
@@ -15,7 +15,7 @@ Activator template for Play Framework and Slick.You can also generate souce code
 * Source codes are generated from DB schema.
  ‐ Import Application structures into the Repository in the process.
 * Can edit the application structures in the repository.
-* Don't have to install , because provided by  "Typesafe Activator".
+* If you have installed sbt, you can use from "git clone".
 
 ### Generating flow when using the code generator
 
