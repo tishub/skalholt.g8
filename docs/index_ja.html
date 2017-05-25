@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Skalholt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Skalholt</h1>
+        <p>Scala code generator for Play Framework and Slick</p>
+
+        <p class="view"><a href="https://github.com/tech-sketch/skalholt">View the Project on GitHub <small>tech-sketch/skalholt</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/tech-sketch/skalholt/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tech-sketch/skalholt/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tech-sketch/skalholt">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="WhatIsSkalholt" class="anchor" href="#WhatIsSkalholt"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
+
+<p>SkalholtはScalaでのWebアプリケーションの開発を効率化するソースコード自動生成ツールです。データベーススキーマからPlay FrameworkとSlickに準拠したソースコードを生成に加え、スキーマからは得ることが出来ない情報を付加したソースコードの生成を実現します。</p>
+
+<p>DBスキーマを準備しSkalholtを実行すれば、シンプルなCRUDアプリケーションが作成できます。SkalholtはWebアプリケーションとして動作しますので、自動生成された設計内容をブラウザから編集することが出来ます。これによりScaffoldから一歩進んだアプリケーションを構築することが出来ます。</p>
+
+<p>Webアプリケーションを開発する際のフレームワークとしてスターンダードとなりつつあるPlay FrameworkとSlickを利用する際の開発を効率化すること、また、簡単に開発をスタートできることでScalaやPlayの習得に障壁を感じている方に対して、その習得を促進することを狙いとしています。</p>
+
+<h3>
+<a name="MainFeature" class="anchor" href="#MainFeature"><span class="octicon octicon-link"></span></a>特徴</h3>
+
+<ol>
+<li>Play Framework、Slickに対応したソースコードを生成</li>
+<li>DBスキーマからソースコードを生成するScaffold機能</li>
+<li>アプリケーション構造を設計リポジトリに保持し、その内容を編集することでアプリケーションが進化</li>
+<li>sbtがインストールされていれば "sbt new" で利用可能</li>
+</ol><h2>
+<a name="ReleaseNote" class="anchor" href="#ReleaseNote"><span class="octicon octicon-link"></span></a>リリースノート</h2>
+
+<ul>
+<li>2015/02/23 Ver0.1.2 Bug fix and Library update</li>
+<li>2014/10/10 Ver0.1.1 Bug fix</li>
+<li>2014/9/5 Ver0.1.0 First Release</li>
+</ul><h2>
+<a name="SkalholtArchitecture" class="anchor" href="#SkalholtArchitecture"><span class="octicon octicon-link"></span></a>構成</h2>
+
+<p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションのテンプレートです。</p>
+
+<p>プロジェクトは以下の構成になっています。</p>
+
+<pre><code>▶ Skalholt-Template
+　 ├ app
+　 │   開発するアプリケーションのソースコード（本ツールにより自動生成）
+　 ├ conf
+　 │   設定ファイル
+　 ├ skalholt/lib
+　 │   Skalholtのライブラリ群
+　 ├ skalholt.h2.db
+　 │   設計リポジトリのデータファイル（H2 Database）
+　 └ skalholt-ui.bat（skalholt-ui）
+　　　　　Skalholt起動バッチ（シェル）
+</code></pre>
+
+<p>Skalholtは以下の様な流れで利用します。</p>
+
+<h4>
+<a name="1-InvokeSkalholtCodeGenerator" class="anchor" href="#1-InvokeSkalholtCodeGenerator"><span class="octicon octicon-link"></span></a>1. 自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h4>
+
+<p>(1) 設計リポジトリの作成<br>
+   (2) 業務データベースからソースコードの生成<br>
+   (3) 設計リポジトリからソースコードの生成  </p>
+
+<h4>
+<a name="2-EditContentsOfDesignRepository" class="anchor" href="#2-EditContentsOfDesignRepository"><span class="octicon octicon-link"></span></a>2. 設計リポジトリの内容を編集し、ソースコードを再生成する。</h4>
+
+<p>(4) 設計リポジトリの内容を編集<br>
+   (5) ソースコードの再生成  </p>
+
+<p><img src="images/skalholt/generate-flow.png" alt="Generate flow"></p>
+
+<p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
+設計リポジトリは以下の様な構成です。</p>
+
+<p><img src="images/skalholt/design-repository.png" alt="Design Repositoy"></p>
+
+<p>Skalholtは以下のDBMSで動作確認を行っています。</p>
+
+<ul>
+<li>H2Database</li>
+<li>PostgreSQL</li>
+</ul><h2>
+<a name="HowToInstall" class="anchor" href="#HowToInstall"><span class="octicon octicon-link"></span></a>インストール</h2>
+
+<p>Skalholtを利用するために特別なツールのインストールは不要です。sbtさえインストールされていれば使用できます。
+sbtの利用に必要な環境と環境構築方法は公式サイトの<a href="http://www.scala-sbt.org/0.13/docs/ja/Setup.html">「sbt のインストール」</a>を参照してください。</p>
+
+<h2>
+<a name="HowToUse" class="anchor" href="#HowToUse"><span class="octicon octicon-link"></span></a>利用手順</h2>
+
+<h3>
+<a name="Preparation" class="anchor" href="#Preparation"><span class="octicon octicon-link"></span></a>前準備</h3>
+
+<h4>1. ブランクプロジェクトの作成</h4>
+
+<ul>
+<li>git clone」によるプロジェクト作成</li>
+<pre><code>C:\work&gt;sbt new tis-hub/skalholt.g8 --name=myapp
+</code></pre>
+
+<li>プロジェクトディレクトリでsbt起動</li>
+<pre><code>C:\work&gt;cd myapp
+C:\work\myapp&gt;sbt
+</code></pre>
+
+<li>コンパイル</li>
+<pre><code>[myapp] $compile
+</code></pre>
+</ul>
+
+<h4>２. 業務データベースの準備と起動</h4>
+<ul>
+<li>初期状態でH2 Databaseのサンプルスキーマが準備されているので、H2 Databaseを起動します。</li>
+<pre><code>[myapp] $ h2-browser
+</code></pre>
+<li>Webブラウザが起動しますので接続先情報を入力し、データベースの内容を確認してみましょう。</li>
+<pre><code>Driver Class : org.h2.Driver
+JDBC URL     : jdbc:h2:tcp://localhost:9092/./skalholt;
+User Name    : sa
+Password     :
+</code></pre>
+<p>設計リポジトリ(スキーマ名:GENERATOR)とサンプルの業務データベース(スキーマ名:SAMPLE)が用意されています。 </p>
+</ul>
+
+<h5>※ 初期状態で準備されているH2 Database以外を利用する場合は、アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。</h5>
+<ul>
+<li>application.conf</li>
+
+<pre><code>db.default.driver=org.h2.Driver
+db.default.url="jdbc:h2:tcp://localhost:9092/./skalholt;SCHEMA=SAMPLE"
+db.default.user=sa
+db.default.password=""
+</code></pre>
+
+<p>データベース接続設定の詳細は<a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play公式ドキュメント(リンク先はバージョン2.3)</a>を参照してください。</p>
+</ul>
+
+<h4>３. アプリケーションの起動</h4>
+<ul>
+<li>アプリケーション起動</li>
+<pre><code>[myapp] $ run
+</code></pre>
+
+<li>
+<p><a href="http://localhost:9000/">http://localhost:9000/</a> へアクセス<br>
+メニューにはまだ何も表示されません。</p>
+
+<p><img src="images/skalholt/menu-before.png" alt="no menu"></p>
+</li>
+</ul><h3>
+<a name="GenerateSourceCodes" class="anchor" href="#GenerateSourceCodes"><span class="octicon octicon-link"></span></a>ソースコードのジェネレート</h3>
+
+<h4>
+<a name="1-ExecuteSkalholt" class="anchor" href="#1-ExecuteSkalholt"><span class="octicon octicon-link"></span></a>1. 自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h4>
+
+<ul>
+<li>Skalholtの起動(アプリケーションの起動に使用したターミナルとは別ウィンドウで起動)</li>
+<pre><code>C:\work\myapp&gt;skalholt-ui
+</code></pre>
+※Macで実行する場合は、「skalholt-ui」に実行権限を付与して下さい。
+<pre><code>myapp $chmod a+x skalholt-ui
+</code></pre>
+
+<li><p><a href="http://localhost:9001/">http://localhost:9001/</a> へアクセス
+<img src="images/skalholt/capture-generator.png" alt="Source Code Generate"></p></li>
+<li><p>「Generate」画面にソースコード出力先と自動生成の元となるDBスキーマへの接続情報を設定し「Create design repository and generate source code」をクリック</p></li>
+<li>
+<p><a href="http://localhost:9000/">http://localhost:9000/</a> へアクセス<br>
+メニューにアプリケーションへアクセスするためのリンクが生成されています。  </p>
+
+<p><img src="images/skalholt/menu-after.png" alt="no menu"></p>
+</li>
+</ul><h4>
+<a name="2-EditContentsOfDesignRepository-1" class="anchor" href="#2-EditContentsOfDesignRepository-1"><span class="octicon octicon-link"></span></a>2. 設計リポジトリの内容を編集し、ソースコードを再生成する。</h4>
+
+<ul>
+<li>
+<a href="http://localhost:9001/">http://localhost:9001/</a> へアクセス</li>
+<li><p>「Design repository -> Screens」画面から変更したい画面を選択
+<img src="images/skalholt/capture-screens.png" alt="Screens"></p></li>
+<li><p>「Screen Detail」画面で画面情報を編集し、「Save Changes」をクリック
+<img src="images/skalholt/capture-screen-detail.png" alt="Screen Detail"></p></li>
+<li><p>画面右上の「Re Generate」からソースコードを再生成</p></li>
+<li>※どんな変更ができるのか？
+
+<ul>
+<li>HTMLコンポーネントの種類を変更したい</li>
+<li>バリデーションの内容を変更したい</li>
+<li>検索方法を変更したい</li>
+<li>入力項目を追加・削除したい</li>
+</ul>
+</li>
+</ul><p><img src="images/skalholt/capture-screen-detail-customize.png" alt="Edit Screen Detail"></p>
+
+<h2>
+<a name="Contact" class="anchor" href="#Contact"><span class="octicon octicon-link"></span></a>問い合わせ先</h2>
+
+<p>フィードバックや不明点等以下までお問い合わせ下さい。<br>
+TIS株式会社<br>
+生産革新本部 生産革新部 生産技術R&D室<br>
+Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+
+<h2>
+<a name="License" class="anchor" href="#License"><span class="octicon octicon-link"></span></a>ライセンス</h2>
+
+<p>Skalholtは<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version2.0</a>のもとにリリースされています。</p>
+      </section>
+      <footer>
+        <p>
+          <a href="index_ja.html"><img src="images/skalholt/flag_japan.png" alt="Japanese"></a>
+          <a href="index.html">   <img src="images/skalholt/flag_united_kingdom.png" alt="English"></a>
+        </p>
+        <p>This project is maintained by <a href="https://github.com/tech-sketch">tech-sketch</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54356347-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
