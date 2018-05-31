@@ -167,6 +167,7 @@ Typesafe Activatorの詳細な利用方法については、Typesafe.comの[「T
 ## 問い合わせ先
 フィードバックや不明点等以下までお問い合わせ下さい。  
 TIS株式会社  
+コーポレート本部　戦略技術センター  
 Skalholt 担当宛  
 smart_dev@ml.tis.co.jp
 
