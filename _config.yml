@@ -1,0 +1,8 @@
+title: Skalholt
+description: Scala code generator for Play Framework and Slick
+google_analytics: UA-54356347-2
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
