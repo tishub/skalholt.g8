@@ -1,0 +1,26 @@
+@(title: String, form: Form[_] = null)(content: Html)(implicit flash: Flash)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+
+        <link rel="stylesheet" href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("bootflat/css/bootflat.min.css")">
+
+        <!-- Bootstrap -->
+        <script src="@routes.Assets.at("javascripts/js/jquery-1.11.1.min.js")")></script>
+        <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")"></script>
+
+        <!-- Bootflat's JS files.-->
+        <script src="@routes.Assets.at("bootflat/js/icheck.min.js")"></script>
+        <script src="@routes.Assets.at("bootflat/js/jquery.fs.selecter.min.js")"></script>
+        <script src="@routes.Assets.at("bootflat/js/jquery.fs.stepper.min.js")"></script>
+    </head>
+    <body>
+        @menu.apply
+        @if(form != null){ @messages(form) }
+        @content
+    </body>
+</html>

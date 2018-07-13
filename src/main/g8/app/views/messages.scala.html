@@ -1,0 +1,26 @@
+@(form: Form[_])(implicit flash: Flash)
+
+@import BootstrapHelper._
+
+  <div class="container">
+    @if(flash.get("success").isDefined){
+      <div class="alert alert-success">
+        @flash.get("success")
+      </div>
+    }
+    @if(form.errors){
+      <div class="alert alert-danger">
+      @if(form.hasGlobalErrors){
+        @form.globalError.get.message
+      } else {
+        There are some errors. please correct them.
+      }
+      </div>
+    } else {
+      @if(flash.get("error").isDefined){
+        <div class="alert alert-danger">
+          @flash.get("error")
+        </div>
+      }
+    }
+  </div>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Skalholt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Skalholt</h1>
+        <p>Scala code generator for Play Framework and Slick</p>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/tishub/Skalholt.g8">View the Project on GitHub <small>tishub/skalholt.g8</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/tishub/Skalholt.g8/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tishub/Skalholt.g8/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tishub/Skalholt.g8">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="WhatIsSkalholt" class="anchor" href="#WhatIsSkalholt"><span class="octicon octicon-link"></span></a>What is Skalholt?</h2>
+
+<p>Skalholt is a source code generator which improves efficiency of web application development in Scala. It can generate source codes based on Play framework and Slick from database schema, and also it can add some additional information that is not be captured from the database schema to the source codes.</p>
+
+<p>Once you prepare DB schema and execute Skalholt, then you can get simple CRUD application. Skalholt works as Web application, so you can browse and edit generated design information in design repository. With this feature, you can make the application more suitable for your needs than Scaffold.</p>
+
+<p>We aim to improve the efficiency of web application development that uses Play framework and Slick, which are going to be de facto standard. Additionally, we aim to help developers who feel difficult to learn these frameworks.</p>
+
+<h3>
+<a name="MainFeature" class="anchor" href="#MainFeature"><span class="octicon octicon-link"></span></a>Main feature</h3>
+
+<ol>
+<li>Generate source codes based on Play Framework and Slick</li>
+<li>Scaffolding: i.e. generate source codes from DB schema</li>
+<li>Improve application by editing design information in the repository which describe application structure</li>
+<li>If you have installed sbt, you can use from "sbt new"</li>
+</ol><h2>
+<a name="ReleaseNote" class="anchor" href="#ReleaseNote"><span class="octicon octicon-link"></span></a>Release Note</h2>
+
+<ul>
+<li>Feb. 23, 2015&nbsp;&nbsp;Ver0.1.2&nbsp;&nbsp;Bug fix and Library update</li>
+<li>Oct. 10, 2014&nbsp;&nbsp;Ver0.1.1&nbsp;&nbsp;Bug fix</li>
+<li>Sep. 5, 2014&nbsp;&nbsp;Ver0.1.0&nbsp;&nbsp;First Release</li>
+</ul><h2>
+<a name="SkalholtArchitecture" class="anchor" href="#SkalholtArchitecture"><span class="octicon octicon-link"></span></a>Skalholt Architecture</h2>
+
+<p>Skalholt is a web application template base on Play Framework.</a> template.</p>
+
+<p>The directory structure of the project cloned by github is as follows:</p>
+
+<pre><code> Skalholt-Template
+    +---app
+    |     (application source codes to be developed; generated automatically by Skalholt)
+    +---conf
+    |     (settings)
+    +---skalholt/lib
+    |     (Skalholt libraries)
+    +---skalholt.h2.db
+    |     (design repository data file; H2 Database)
+    \---skalholt.bat
+          (batch file to invoke Skalholt)
+</code></pre>
+
+<p>You can use Skalholt in the following steps:</p>
+
+<h4>
+<a name="1-InvokeSkalholtCodeGenerator" class="anchor" href="#1-InvokeSkalholtCodeGenerator"><span class="octicon octicon-link"></span></a>1. Invoke Skalholt code generator. It will gather necessary information to generate application from business database, insert them into design repository, and generate source codes.</h4>
+
+<p>(1) Create design information tables in design repository<br>
+   (2) Generate source codes from business (application) database<br>
+   (3) Generate source codes from design repository</p>
+
+<h4>
+<a name="2-EditContentsOfDesignRepository" class="anchor" href="#2-EditContentsOfDesignRepository"><span class="octicon octicon-link"></span></a>2. Edit contents of design repository using Skalholt web UI, and then re-generate source codes</h4>
+
+<p>(4) Edit the contents of design repository<br>
+   (5) Re-generate source codes</p>
+
+<p><img src="images/skalholt/generate-flow.png" alt="Generate flow"></p>
+
+<p>The architecture of web application to be built is based on Play Framework.  "Controller"s and "View"s are generated based on the contents of design repository, and "Model"s are generated base on business database schema's structure.
+The structure of Design repository is as follows.</p>
+
+<p><img src="images/skalholt/design-repository.png" alt="Design Repository"></p>
+
+<p>Skalholt is tested with the following DBMS.</p>
+
+<ul>
+<li>H2Database</li>
+<li>PostgreSQL</li>
+</ul><h2>
+<a name="HowToInstall" class="anchor" href="#HowToInstall"><span class="octicon octicon-link"></span></a>How to install</h2>
+
+<p>All you need is sbt to use Skalholt. No other tools are needed.
+Please refer to <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">"Installing sbt"</a> about required environment and setup procedure for sbt.</p>
+
+<h2>
+<a name="HowToUse" class="anchor" href="#HowToUse"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<h3>
+<a name="Preparation" class="anchor" href="#Preparation"><span class="octicon octicon-link"></span></a>Preparation</h3>
+
+<h4>1. Create blank project</h4>
+
+<ul>
+<li>Execute "sbt new"</li>
+<pre><code>C:\work&gt;sbt new tishub/skalholt.g8 --name=myapp
+</code></pre>
+
+<li>Execute sbt in project directory</li>
+<pre><code>C:\work&gt;cd myapp
+C:\work\myapp&gt;sbt
+</code></pre>
+
+<li>Compile</li>
+<pre><code>[myapp] $compile
+</code></pre>
+</ul>
+
+<h4>2. Prepare and invoke Database</h4>
+
+<ul>
+<li>This template comes with an example h2 database that is already prepared for you, so please invoke H2 Database.</li>
+<pre><code>[myapp] $ h2-browser
+</code></pre>
+
+<li>When web broser is started, please input database conection information and check database schema.</li>
+<pre><code>Driver Class : org.h2.Driver
+JDBC URL     : jdbc:h2:tcp://localhost:9092/./skalholt;
+User Name    : sa
+Password     :
+</code></pre>
+
+<p>Design repository(schema name: GENERATOR) and sample busines database(schema name: SAMPLE) are prepared for you.<p>
+</ul>
+
+<h5>* When you use the other schema than that is already prepared, Please prepare DB schema used by application, and configure "application.conf" to connect the database.</h5>
+
+<ul>
+<li>application.conf</li>
+
+<pre><code>db.default.driver=org.h2.Driver
+db.default.url="jdbc:h2:tcp://localhost:9092/./skalholt;SCHEMA=SAMPLE"
+db.default.user=sa
+db.default.password=""
+</code></pre>
+
+<p>Please refer to <a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play Documentation(this link is for version 2.3)</a> for details of settings of database connection.</p>
+
+
+</ul>
+
+<h4>3. Execute application</h4>
+
+<ul>
+<li>Execute "run"</li>
+<pre><code>[myapp] $ run
+</code></pre>
+
+<li>
+<p>Access to <a href="http://localhost:9000/">http://localhost:9000/</a><br>
+Menu has no items at this time</p>
+
+<p><img src="images/skalholt/menu-before.png" alt="no menu"></p>
+</li>
+</ul>
+<h2>
+<a name="GenerateSourceCodes" class="anchor" href="#GenerateSourceCodes"><span class="octicon octicon-link"></span></a>Generate source codes</h2>
+
+<h4>
+<a name="1-ExecuteSkalholt" class="anchor" href="#1-ExecuteSkalholt"><span class="octicon octicon-link"></span></a>1. Execute Skalholt. It will gather necessary information to generate application from business database, insert them into design repository, and generate source codes.</h4>
+
+<ul>
+<li>Execute Skalholt (You have to execute in the other terminal from used executing application.)</li>
+<pre><code>C:\work\myapp&gt;skalholt-ui
+</code></pre>
+
+* If you execute on Mac, please set the execute bit on "skalholt-ui".
+<pre><code>myapp $chmod a+x skalholt-ui
+</code></pre>
+
+<li><p>Access to <a href="http://localhost:9001/">http://localhost:9001/</a>
+<img src="images/skalholt/capture-generator.png" alt="Source Code Generate"></p></li>
+<li><p>Input output folder location and connection information to DB schema which is the source of code generation, and then click "Create design repository and generate source code"</p></li>
+<li>
+<p>Access to <a href="http://localhost:9000/">http://localhost:9000/</a><br>
+Menu have link(s) to access to generated application now.</p>
+
+<p><img src="images/skalholt/menu-after.png" alt="no menu"></p>
+</li>
+</ul><h4>
+<a name="2-EditContentsOfDesignRepository-1" class="anchor" href="#2-EditContentsOfDesignRepository-1"><span class="octicon octicon-link"></span></a>2. Edit contents of design repository, and then re-generate source codes.</h4>
+
+<ul>
+<li>
+Access to <a href="http://localhost:9001/">http://localhost:9001/</a></li>
+<li><p>Choose the screen you'd like to change from "Result of Search" list
+<img src="images/skalholt/capture-screens.png" alt="Screens"></p></li>
+<li><p>Edit screen items on "Screen Detail"
+<img src="images/skalholt/capture-screen-detail.png" alt="Screen Detail"></p></li>
+<li><p>Click "Re Generate" on the upper right corner of screen to re-generate source codes</p></li>
+<li>You can change the following behaviors of the application
+
+<ul>
+<li>Kind of HTML component</li>
+<li>Validation way of screen item</li>
+<li>Search condition</li>
+<li>Input items (add/remove)</li>
+</ul>
+</li>
+</ul><p><img src="images/skalholt/capture-screen-detail-customize.png" alt="Edit Screen Detail"></p>
+
+<h2>
+<a name="Contact" class="anchor" href="#Contact"><span class="octicon octicon-link"></span></a>Contact</h2>
+
+Please send feedback to us
+
+Skalholt team<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+
+TIS Inc.<br>
+<p/>
+<h2>
+<a name="License" class="anchor" href="#License"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Skalholt is released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License version2.0</a>.</p>
+      </section>
+      <footer>
+        <p>
+          <a href="index_ja.html"><img src="images/skalholt/flag_japan.png" alt="Japanese"></a>
+          <a href="index.html">   <img src="images/skalholt/flag_united_kingdom.png" alt="English"></a>
+        </p>
+        <p>This project is maintained by <a href="https://github.com/tishub">tishub</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54356347-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
