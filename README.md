@@ -47,15 +47,6 @@ Skalholt is tested with the following DBMS.
 * H2Database
 * PostgreSQL
 
-# Contact
-
-Please send feedback to us.
-
-[TIS Inc.](http://www.tis.com/)
-System Development Technology R&D Office
-Skalholt team
-<smart_dev@ml.tis.co.jp>.
-
 # License
 
 Skalholt is released under the Apache License version2.0.
